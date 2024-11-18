@@ -6,25 +6,25 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
 }
 
 model Shoplist {
-  id         String   @id @default(uuid())
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
   event_name String
   owner      String   @unique
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
-  items      Item[] // 
+  items      Item[]
   acess_code String   @unique
 }
 
 model Item {
-  id          String    @id @default(uuid())
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
   item_name   String
   quantity    Int
   isPurchased Boolean   @default(false)
   Shoplist    Shoplist? @relation(fields: [shoplistId], references: [id])
-  shoplistId  String?
+  shoplistId  String?   @db.ObjectId
 }
