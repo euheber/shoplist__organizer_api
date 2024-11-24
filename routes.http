@@ -1,3 +1,11 @@
 POST http://localhost:3000/api/v1/createlist
 Content-Type: application/json
 
+{
+    "event_name": "",
+    "owner":"euheber@gmail.com",
+    "items":[{ "item_name": "Bolo", "quantity": 1 },
+        { "item_name": "Refrigerante", "quantity": 10 },
+        { "item_name": "Salgadinhos", "quantity": 40 }]
+}
+

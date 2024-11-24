@@ -11,13 +11,13 @@ datasource db {
 }
 
 model Shoplist {
-  id         String   @id @default(auto()) @map("_id") @db.ObjectId
-  event_name String
-  owner      String   @unique
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
-  items      Item[]
-  acess_code String   @unique
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  event_name  String
+  owner       String   @unique
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  items       Item[]
+  access_link String
 }
 
 model Item {
