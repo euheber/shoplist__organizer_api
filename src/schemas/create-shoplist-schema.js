@@ -1,12 +1,17 @@
 export const createShoplistSchema = { 
     event_name : {
         isString : {errorMessage: "event_name must be a string"},
-        notEmpty : {errorMessage: "field event_name cannot be empty"},
+        notEmpty : {errorMessage: "The field 'event_name' cannot be empty"},
+        trim: true, 
+        escape: true 
     },
     owner: { 
         isString: {errorMessage: "owner must be a string"},
         isEmail: {errorMessage: "owner field must be an email"},
-        notEmpty: {errrorMessage: "owner field cannot be empty"}
+        notEmpty: {errorMessage: "The field 'owner' cannot be empty"},
+        trim: true, 
+        escape: true,
+        normalizeEmail: true
     },
     items: {
         isArray: {

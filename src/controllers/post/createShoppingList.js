@@ -9,8 +9,11 @@ export default async function createShopingList(req, res, next) {
   const result = validationResult(req)
 
   if (!result.isEmpty()) {
-    return next(new badRequest("You have to provide the right information on all fields", result));
+    const mappedErrors = result.array()
+    
+    return next(new badRequest(`${mappedErrors[0].msg}`));
   }
+
   try {
     await prisma.shoplist.create({
       data: {
@@ -24,10 +27,10 @@ export default async function createShopingList(req, res, next) {
     res.send("Evento cadastrado").status(StatusCodes.CREATED)
   } catch (e) {
     if (e.code === "P2002") {
+      console.log(e)
       return next(new badRequest("Você já possui uma lista cadastrada"))
 
     }
-    console.log(e)
     return next(new Error(e));
   }
 }
