@@ -6,6 +6,7 @@ Content-Type: application/json
     "owner":"euheber1@gmail.com",
     "items":[{ "item_name": "Bolo", "quantity": 1 },
         { "item_name": "Refrigerante", "quantity": 10 },
-        { "item_name": "Salgadinhos", "quantity": 40 }]
+        { "item_name": "Salgadinhos", "quantity": 40 }],
+    
 }
 
