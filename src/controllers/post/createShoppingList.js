@@ -29,7 +29,6 @@ export default async function createShopingList(req, res, next) {
     if (e.code === "P2002") {
       console.log(e)
       return next(new badRequest("Você já possui uma lista cadastrada"))
-
     }
     return next(new Error(e));
   }
