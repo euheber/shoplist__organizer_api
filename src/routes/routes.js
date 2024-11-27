@@ -1,8 +1,8 @@
-import { checkSchema } from 'express-validator'
-import  getShoppingList  from "../controllers/get/shopingList.js"
-import createShopingList from "../controllers/post/createShoppingList.js"
-import { createShoplistSchema } from "../schemas/create-shoplist-schema.js"
 import {Router} from "express"
+import createShopingList from "../controllers/post/createShoppingList.js"
+import getShoppingList  from "../controllers/get/shopingList.js"
+import { checkSchema } from 'express-validator'
+import { createShoplistSchema } from "../schemas/create-shoplist-schema.js"
 
 const router = Router()
 

@@ -1,11 +1,11 @@
 import jwt from "jsonwebtoken"
 
 const generateToken = (payload) => { 
-    const today = new date()
-    const futureDate = newDate(payload)
+    const {date} = payload
+    const today = new Date()
+    const futureDate = new Date(date)
     const diffInMilliseconds = futureDate - today;
     const diffInDays = Math.ceil(diffInMilliseconds / (1000 * 60 * 60 * 24));
-
 
     const options = { expiresIn:  `${diffInDays}d` };
         return new Promise( (resolve, reject) => { 
@@ -19,6 +19,8 @@ const generateToken = (payload) => {
             })
         })
 }
+
+
 
 
 export default generateToken
