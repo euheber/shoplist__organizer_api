@@ -1,9 +1,9 @@
 import jwt from "jsonwebtoken"
 
 const generateToken = (payload) => { 
-    const {date} = payload
+
     const today = new Date()
-    const futureDate = new Date(date)
+    const futureDate = new Date(payload.endsAt)
     const diffInMilliseconds = futureDate - today;
     const diffInDays = Math.ceil(diffInMilliseconds / (1000 * 60 * 60 * 24));
 
