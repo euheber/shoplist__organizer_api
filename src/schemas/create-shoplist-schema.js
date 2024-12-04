@@ -13,6 +13,19 @@ export const createShoplistSchema = {
         escape: true,
         normalizeEmail: true
     },
+    endsAt: {
+        isISO8601: { errorMessage: "endsAt must be a valid ISO 8601 date" },
+        custom: {
+            options: (value) => {
+                const today = new Date();
+                const inputDate = new Date(value);
+                return inputDate >= today;
+            },
+            errorMessage: "endsAt cannot be a date in the past"
+        },
+        notEmpty: { errorMessage: "The field 'endsAt' cannot be empty" },
+        toDate: true 
+    },
     items: {
         isArray: {
             errorMessage: "items field must be an array"
@@ -28,6 +41,6 @@ export const createShoplistSchema = {
     },
     'items.*.quantity': {
         isInt: { errorMessage: "item quantity must be a number" },
-        toInt: true // Converts the value to an integer
+        toInt: true 
     }
 }
