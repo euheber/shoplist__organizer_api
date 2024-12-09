@@ -5,11 +5,12 @@ import updateList from "../controllers/patch/updateShoppingList.js"
 import { checkSchema } from 'express-validator'
 import { createShoplistSchema } from "../schemas/create-shoplist-schema.js"
 import { updateItemSchema } from "../schemas/update-item-schema.js"
+import verifyToken from "../utils/verifytoken.js"
 
 const router = Router()
 
 router.post("/createlist", checkSchema(createShoplistSchema, ["body"]), createShopingList)
-router.patch("/updatelist", checkSchema(updateItemSchema, ["body"]), updateList)
-router.get("/shop", getShoppingList)
+router.patch("/updatelist", checkSchema(updateItemSchema, ["body"]),  updateList)
+router.get("/shop", verifyToken, getShoppingList)
 
 export default router

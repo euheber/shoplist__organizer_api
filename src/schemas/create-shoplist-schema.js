@@ -19,6 +19,8 @@ export const createShoplistSchema = {
             options: (value) => {
                 const today = new Date();
                 const inputDate = new Date(value);
+
+             
                 return inputDate >= today;
             },
             errorMessage: "endsAt cannot be a date in the past"
