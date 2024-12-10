@@ -6,10 +6,9 @@ import prisma from "../../lib/prismaClient.js"
 export default async function updateList(req, res, next) {
     const { id, isPurchased } = req.body
     const result = validationResult(req)
-
     if (!result.isEmpty()) {
-      const mappedErrors = result.array()
-      return next(new badRequest(`${mappedErrors[0].msg}`));
+        const mappedErrors = result.array()
+        return next(new badRequest(`${mappedErrors[0].msg}`));
     }
 
     try {

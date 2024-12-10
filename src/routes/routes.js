@@ -5,7 +5,7 @@ import updateList from "../controllers/patch/updateShoppingList.js"
 import { checkSchema } from 'express-validator'
 import { createShoplistSchema } from "../schemas/create-shoplist-schema.js"
 import { updateItemSchema } from "../schemas/update-item-schema.js"
-import verifyToken from "../utils/verifytoken.js"
+import verifyToken from "../middleware/verifytoken.js"
 
 const router = Router()
 

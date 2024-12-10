@@ -6,7 +6,6 @@ export default function verifyToken(req, res, next) {
     jwt.verify(token, process.env.SECRET, (err, decoded) => {
 
         if (err) {
-            console.log(err)
            return next(new badRequest("Token invalido ou expirado"))
         }
 
